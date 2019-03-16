@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Tabs } from 'antd';
+import Grid from './Components/Grid';
+import Create from './Components/Create'
 import './App.css';
+import emails from './data/emails.json'
+
+const TabPane = Tabs.TabPane;
 
 class App extends Component {
   render() {
+    console.log(emails.length);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="List" key="1">
+              <Grid />
+            </TabPane>
+            <TabPane tab="Create" key="2">
+              <Create/>
+            </TabPane>
+          </Tabs>
       </div>
     );
   }
